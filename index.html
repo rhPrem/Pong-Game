@@ -52,6 +52,22 @@
           e.preventDefault();
           downPressed=false;
         });
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "ArrowUp" || e.key === "w" || e.key === "W") {
+          upPressed = true;
+        }
+        if (e.key === "ArrowDown" || e.key === "s" || e.key === "S") {
+          downPressed = true;
+        }
+      });
+    document.addEventListener("keyup", function(e) {
+      if (e.key === "ArrowUp" || e.key === "w" || e.key === "W") {
+        upPressed = false;
+      }
+      if (e.key === "ArrowDown" || e.key === "s" || e.key === "S") {
+        downPressed = false;
+      }
+    });
       
       function gameLoop()
       {
