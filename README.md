@@ -1,4 +1,4 @@
-# Pong Game 🏓
+# Pong Game for mobile 🏓📱
 
 A browser-based recreation of the classic arcade game Pong, built from scratch using HTML5 Canvas and vanilla JavaScript as part of a self-directed web development and game programming curriculum.
 
