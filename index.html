@@ -171,6 +171,11 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 document.getElementById("restartBtn").addEventListener("click", restartGame);
     </script>
     <style>
+      @media (hover : hover) and (pointer : fine) {
+        #upBtn,#downBtn{
+          display : none;
+        }
+      }
       #upBtn,#downBtn{
         width: 150px;
         height: 80px;
@@ -192,9 +197,16 @@ document.getElementById("restartBtn").addEventListener("click", restartGame);
         touch-action:none;
       }
       canvas {
-  width: 90vw;
-  max-width: 400px;
-  height: auto;
+        width: 90vw;
+        max-width: 400px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        canvas {
+          max-width: 600px;
+        }
       }
     </style>
   </body>
