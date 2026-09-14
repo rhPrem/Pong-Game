@@ -68,9 +68,11 @@
         downPressed = false;
       }
     });
-      
-      function gameLoop()
-      {
+    let lastTime = 0;
+    function gameLoop(currentTime)
+    {
+      let deltaTime = (currentTime - lastTime) / 1000;
+      lastTime = currentTime;
         if (aiScore >= 5) {
           gameRunning=false;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -128,13 +130,13 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
           ballY=canvas.height/2;
         }
         if(upPressed && paddleY>0){
-          paddleY-=5;
+          paddleY-=300 * deltaTime;
         }
         if(downPressed && paddleY+paddleHeight<canvas.height){
-          paddleY+=5;
+          paddleY+=300 * deltaTime;
         }
-        ballX +=ballDX;
-        ballY +=ballDY;
+        ballX +=ballDX * 60 * deltaTime;
+        ballY +=ballDY * 60 * deltaTime;
         ctx.fillStyle="white"
         ctx.fillRect(10,paddleY,paddleWidth,paddleHeight);
         ctx.fillRect(paddle2X,paddle2Y,paddleWidth,paddleHeight);
@@ -153,7 +155,7 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
       function startGame(){
         if (!gameRunning){
           gameRunning=true;
-          gameLoop();
+          requestAnimationFrame (gameLoop);
         }
       }
       function restartGame() {
@@ -211,4 +213,4 @@ document.getElementById("restartBtn").addEventListener("click", restartGame);
       }
     </style>
   </body>
-</html>
+</html
